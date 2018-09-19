@@ -268,7 +268,7 @@ We now consider a small perturbation $\psi=\psi_0+\epsilon\psi_1+O\left(\epsilon
 \frac{\partial \left(\nabla^2 \psi_1\right)}{\partial t}+U\frac{\partial \left(\nabla^2 \psi_1\right)}{\partial x}+\beta\frac{\partial \psi_1}{\partial x}=0
 \]
 
-Now we seek a trial solution of the form $\psi_1=\sin\left(kx+ly-\omega t\right)$. Substituting this into the above equation, we obtain the following dispersion relation:
+Next we make the ansatz that $\psi_1=\cos\left(kx+ly-\omega t\right)$. Substituting this into the above equation, we obtain the following dispersion relation:
 
 \[
 \omega=Uk-\frac{\beta k}{k^2+l^2}
@@ -281,8 +281,8 @@ Now we seek a trial solution of the form $\psi_1=\sin\left(kx+ly-\omega t\right)
 
 \begin{frame}[fragile]
 \frametitle{Plot}
-
 \begin{minipage}[t][6cm]{\textwidth}
+\centering
 	\begin{asy}
 	import animate;
 	import graph;
@@ -603,8 +603,8 @@ pair[] tracer_positions;
 		}
 
 	//add(frame,vectorfield(velocity,(0,0),(width,height),nx=18,ny=9));
-	xaxis(frame,"x",xmin=0,xmax=width);
-	yaxis(frame,"y",ymin=0,ymax=height);
+	xaxis(frame,"x",xmin=0,xmax=width+0.1,arrow=EndArrow);
+	yaxis(frame,"y",ymin=0,ymax=height+0.1,arrow=EndArrow);
 	return frame;
 	}
 
@@ -617,6 +617,9 @@ pair[] tracer_positions;
 	label(A.pdf("autoplay,loop"));
 	\end{asy} 
 \end{minipage}
+
+A plot of the solution. The dots move with the flow and the black lines represent streamlines of the velocity field, obtained by plotting level sets of the stream function $\psi=-Uy+\cos(kx-wt)$. The colors indicate vorticity - red for positive and blue for negative.
+
 \end{frame}
 
 \begin{frame}
