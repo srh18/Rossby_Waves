@@ -168,19 +168,18 @@ The shallow water mass conservation -
 \begin{frame}
 \frametitle{Vorticity Equation}
 Rewrite SW equations in terms of \textit{relative vorticity} $\zeta=\nabla\times\bm{u}$
-\vspace{0.2cm}
+\vspace{0.3cm}
 \begin{itemize}
 	\item take the curl $\nabla \times \left(...\right)$
 	\item $\pder{\zeta}{t}+\bm{u}\nabla(\zeta+f)=(\zeta+f)\nabla \bm{u}$
 \end{itemize}
 \vspace{0.5cm}
-Inserting the mass conservation $\mder{h}{t}+h\nabla\bm{u}=0$, we can restate the equations as 
+Inserting the mass conservation $\mder{h}{t}+h\nabla\bm{u}=0$, we can restate the equations as
+\begin{align}
+\mder{}{t}q=0,\qquad q=\frac{\zeta+f}{h}\label{pv_conservation}.
+\end{align}
 \vspace{0.5cm}
-\begin{itemize}
-	\item $\mder{}{t}\left(\frac{\zeta+f}{h}\right)=0,\qquad q=\frac{\zeta+f}{h}$
-\end{itemize}
-\vspace{0.5cm}
-We found a conserved quantity! It is called \textbf{potential vorticity}. 
+The quantity $q$ is conserved, it is called the \textbf{potential vorticity}. 
 \end{frame}
 \begin{frame}
 \frametitle{Potential Vorticity}
