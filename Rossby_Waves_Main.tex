@@ -112,12 +112,12 @@
 \vspace{15pt}
 
 
-The momentum equation -
+The shallow water equation -
 \begin{equation}
 \frac{\partial{\textbf{u}}}{\partial{t}} + \textbf{u}.\nabla\textbf{u} + f \textbf{z} \times \textbf{u} = -g \nabla h
 \end{equation}
 
-The mass conservation equations - 
+The shallow water mass conservation - 
 
 \begin{equation}
 \frac{Dh}{Dt} + (h\nabla \textbf{u}) = 0.
@@ -177,13 +177,11 @@ Rewrite SW equations in terms of \textit{relative vorticity} $\zeta=\nabla\times
 Inserting the mass conservation $\mder{h}{t}+h\nabla\bm{u}=0$, we can restate the equations as 
 \vspace{0.5cm}
 \begin{itemize}
-	\item $\mder{}{t}\left(\frac{\zeta+f}{h}\right)=0,\qquad q=\frac{\zeta+f}{h}\right$
+	\item $\mder{}{t}\left(\frac{\zeta+f}{h}\right)=0,\qquad q=\frac{\zeta+f}{h}$
 \end{itemize}
 \vspace{0.5cm}
 We found a conserved quantity! It is called \textbf{potential vorticity}. 
 \end{frame}
-
-
 \begin{frame}
 \frametitle{Potential Vorticity}
 What does PV conservation imply? \hfill $\color{blue}\boxed{q=\frac{\zeta+f}{h}}$\\
