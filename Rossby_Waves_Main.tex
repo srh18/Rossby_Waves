@@ -112,15 +112,15 @@
 \vspace{15pt}
 
 
-The shallow water equation -
+The shallow water momentum equation -
 \begin{equation}
-\frac{\partial{\textbf{u}}}{\partial{t}} + \textbf{u}.\nabla\textbf{u} + f \textbf{z} \times \textbf{u} = -g \nabla h
+\frac{\partial{\mathbf{u}}}{\partial{t}} + (\mathbf{u}\cdot\nabla)\mathbf{u} + f \textbf{z} \times \mathbf{u} = -g \nabla h \label{momentum_eq}
 \end{equation}
 
 The shallow water mass conservation - 
 
 \begin{equation}
-\frac{Dh}{Dt} + (h\nabla \textbf{u}) = 0.
+\frac{\partial h}{\partial t} + \nabla \cdot (h \mathbf{u}) = 0.\label{mass_conservation}
 \end{equation}
 \end{frame}
 %\begin{frame}{What are the Shallow Water Equations?}
@@ -135,13 +135,13 @@ The shallow water mass conservation -
 %\vspace{-15pt}
 %
 %\begin{equation}   
-%\rho(\frac{\partial{\textbf{u}}}{\partial{t}} + \textbf{u}.\nabla \textbf{u}) = -\nabla p  + \mu \nabla^2\textbf{u} + \rho \textbf{g},
+%\rho(\frac{\partial{\mathbf{u}}}{\partial{t}} + \mathbf{u}.\nabla \mathbf{u}) = -\nabla p  + \mu \nabla^2\mathbf{u} + \rho \textbf{g},
 %\end{equation}
 %
 %where $u=$ velocity, $p=$ pressure, $\rho=$ density and $\mu=$ viscosity.
 %
 %\begin{equation}
-%\frac{\partial{\rho}}{\partial{t}} + (\nabla.\rho \textbf{u}) = 0.
+%\frac{\partial{\rho}}{\partial{t}} + (\nabla.\rho \mathbf{u}) = 0.
 %\end{equation}
 %
 %\end{frame}
@@ -157,7 +157,7 @@ The shallow water mass conservation -
 %
 %The Shallow Water Equation -
 %\begin{equation}
-%\frac{\partial{\textbf{u}}}{\partial{t}} + \textbf{u}.\nabla\textbf{u} + f \textbf{z} \times \textbf{u} = -g \nabla h
+%\frac{\partial{\mathbf{u}}}{\partial{t}} + \mathbf{u}.\nabla\mathbf{u} + f \textbf{z} \times \mathbf{u} = -g \nabla h
 %\end{equation}
 %
 %\begin{itemize}
@@ -174,9 +174,9 @@ Rewrite SW equations in terms of \textit{relative vorticity} $\zeta=\nabla\times
 	\item $\pder{\zeta}{t}+\bm{u}\nabla(\zeta+f)=(\zeta+f)\nabla \bm{u}$
 \end{itemize}
 \vspace{0.5cm}
-Inserting the mass conservation $\mder{h}{t}+h\nabla\bm{u}=0$, we can restate the equations as
+Inserting the mass conservation $\frac{\partial h}{\partial t}+\nabla\cdot(hu)=0$, we can restate the equations as
 \begin{align}
-\mder{}{t}q=0,\qquad q=\frac{\zeta+f}{h}\label{pv_conservation}.
+\mder{q}{t}=0,\qquad q=\frac{\zeta+f}{h}\label{pv_conservation}.
 \end{align}
 \vspace{0.5cm}
 The quantity $q$ is conserved, it is called the \textbf{potential vorticity}. 
@@ -227,7 +227,7 @@ In order to obtain a model for the propogation of Rossby waves, we make the foll
 \item The Coriolis parameter varies linearly with latitude as $f=f_0+\beta y$ (beta plane approximation)
 \end{itemize}
 
-Then the potential vorticity equation (TODO ref) reduces to
+Then the potential vorticity equation \eqref{pv_conservation} reduces to
 
 \[
 \frac{D}{Dt}\left(\zeta+f_0+\beta y\right)=0
@@ -244,31 +244,31 @@ which simplifies to
 \begin{frame}[fragile]
 \frametitle{A simple model}
 
-Since $h$ is assumed constant, the continuity equation (TODO ref) implies that $\nabla \cdot \mathbf{u}=0$. Then there exists a stream function $\psi$ such that $\mathbf{u}=\left(-\frac{\partial \psi}{\partial y},\frac{\partial \psi}{\partial x}\right)$. By expanding the material derivative and writing $u$ and $v$ in terms of $\psi$, we get 
+Since $h$ is assumed constant, then the continuity equation \eqref{mass_conservation} implies that $\nabla \cdot \mathbf{u}=0$. Then there exists a stream function $\psi$ such that $\mathbf{u}=\left(-\frac{\partial \psi}{\partial y},\frac{\partial \psi}{\partial x}\right)$. By expanding the material derivative and writing $u$ and $v$ in terms of $\psi$, we get 
 
 \[
-\frac{\partial \zeta}{\partial t}-\frac{\partial \psi}{\partial y}\frac{\partial \zeta}{\partial x}+\frac{\partial \psi}{\partial x}\frac{\partial \zeta}{\partial y}+\frac{\partial \psi}{\partial x}=0
+\frac{\partial \zeta}{\partial t}-\frac{\partial \psi}{\partial y}\frac{\partial \zeta}{\partial x}+\frac{\partial \psi}{\partial x}\frac{\partial \zeta}{\partial y}+\beta\frac{\partial \psi}{\partial x}=0
 \]
 
 Then using the fact that $\zeta=\nabla^2\psi$, we obtain an equation for $\psi$:
 
-\[
-\frac{\partial \left(\nabla^2 \psi\right)}{\partial t}-\frac{\partial \psi}{\partial y}\frac{\partial \left(\nabla^2 \psi\right)}{\partial x}+\frac{\partial \psi}{\partial x}\frac{\partial \left(\nabla^2 \psi\right)}{\partial y}+\frac{\partial \psi}{\partial x}=0
-\]
+\begin{equation}
+\frac{\partial \left(\nabla^2 \psi\right)}{\partial t}-\frac{\partial \psi}{\partial y}\frac{\partial \left(\nabla^2 \psi\right)}{\partial x}+\frac{\partial \psi}{\partial x}\frac{\partial \left(\nabla^2 \psi\right)}{\partial y}+\beta\frac{\partial \psi}{\partial x}=0 \label{streamfunc_evolution}
+\end{equation}
 \end{frame}
 
 
 \begin{frame}[fragile]
 \frametitle{Linearization}
-We see that a steady uniform flow with velocity $\mathbf{u_0}=\left(U,0\right)$ and stream function $\psi_0=-Uy$ satisfies equation (TODO ref). 
+We see that a steady uniform flow with velocity $\mathbf{u_0}=\left(U,0\right)$ and stream function $\psi_0=-Uy$ satisfies equation \eqref{streamfunc_evolution}. 
 
-We now consider a small perturbation $\psi=\psi_0+\epsilon\psi_1+O\left(\epsilon^2\right)$. By substituting this into (TODO ref) and discarding higher order terms we obtain the following equation for $\psi_1$:
+We now consider a small perturbation $\psi=\psi_0+\epsilon\psi_1+O\left(\epsilon^2\right)$. By substituting this into \eqref{streamfunc_evolution} and discarding higher order terms we obtain the following equation for $\psi_1$:
 
 \[
-\frac{\partial \left(\nabla^2 \psi\right)}{\partial t}+U\frac{\partial \left(\nabla^2 \psi\right)}{\partial x}+\beta\frac{\partial \psi}{\partial x}=0
+\frac{\partial \left(\nabla^2 \psi_1\right)}{\partial t}+U\frac{\partial \left(\nabla^2 \psi_1\right)}{\partial x}+\beta\frac{\partial \psi_1}{\partial x}=0
 \]
 
-Now we seek a trial solution of the form $\psi_1=e^{i\left(kx+ly-\omega t\right)}$. Substituting this into the above equation, we obtain the following dispersion relation:
+Now we seek a trial solution of the form $\psi_1=\sin\left(kx+ly-\omega t\right)$. Substituting this into the above equation, we obtain the following dispersion relation:
 
 \[
 \omega=Uk-\frac{\beta k}{k^2+l^2}
