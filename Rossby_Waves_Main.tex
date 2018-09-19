@@ -167,8 +167,8 @@ The Shallow Water Equation -
 \end{frame}
 \begin{frame}
 \frametitle{Vorticity Equation}
-Rewrite  shallow water equations in terms of \textit{relative vorticity} $\zeta$
-\vspace{0.5cm}
+Rewrite SW equations in terms of \textit{relative vorticity} $\zeta=\nabla\times\bm{u}$
+\vspace{0.2cm}
 \begin{itemize}
 	\item take the curl $\nabla \times \left(...\right)$
 	\item $\pder{\zeta}{t}+\bm{u}\nabla(\zeta+f)=(\zeta+f)\nabla \bm{u}$
@@ -177,7 +177,7 @@ Rewrite  shallow water equations in terms of \textit{relative vorticity} $\zeta$
 Inserting the mass conservation $\mder{h}{t}+h\nabla\bm{u}=0$, we can restate the equations as 
 \vspace{0.5cm}
 \begin{itemize}
-	\item $\mder{}{t}\left(\frac{\zeta+f}{h}\right)=0$
+	\item $\mder{}{t}\left(\frac{\zeta+f}{h}\right)=0,\qquad q=\frac{\zeta+f}{h}\right$
 \end{itemize}
 \vspace{0.5cm}
 We found a conserved quantity! It is called \textbf{potential vorticity}. 
@@ -186,11 +186,7 @@ We found a conserved quantity! It is called \textbf{potential vorticity}.
 
 \begin{frame}
 \frametitle{Potential Vorticity}
-What is potential vorticity $q=\frac{\zeta+f}{h}, \mder{}{t}q=0$?
-\vspace{0.5cm}
-\begin{itemize}
-\item Continuum equivalent of \textit{angular momentum} conservation
-\end{itemize}
+What does PV conservation imply? \hfill $\color{blue}\boxed{q=\frac{\zeta+f}{h}}$\\
 \vspace{0.5cm}
 In $f$-plane approximation, $f=f_0=$const. :
 \vspace{0.2cm}
@@ -200,7 +196,7 @@ In $f$-plane approximation, $f=f_0=$const. :
 \end{column}
 \begin{column}{0.48\textwidth}
 	\begin{itemize}
-		\item Change in $\zeta$ has to be compensated by change in hight $h$
+		\item Change in $\zeta$ has to be compensated by change in height $h$
 	\end{itemize}
 \end{column}
 \end{columns}
