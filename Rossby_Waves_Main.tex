@@ -46,7 +46,7 @@
 
 
 \title[Rossby Waves]{Rossby Waves}
-\author{Manu, Sam, Philipp, Edward, Cathie}
+\author{Cathie, Edward, Manu, Philipp, Sam}
 \institute{University of Reading and Imperial College London}
 \begin{document}
 	
@@ -112,15 +112,15 @@
 \vspace{15pt}
 
 
-The shallow water equation -
+The momentum equation -
 \begin{equation}
-\frac{\partial{\textbf{u}}}{\partial{t}} + \textbf{u}.\nabla\textbf{u} + f \textbf{z} \times \textbf{u} = -g \nabla h
+\frac{\partial{\textbf{u}}}{\partial{t}} + \textbf{u}\cdot\nabla\textbf{u} + f \textbf{z} \times \textbf{u} = -g \nabla h
 \end{equation}
 
-The shallow water mass conservation - 
+The mass conservation - 
 
 \begin{equation}
-\frac{Dh}{Dt} + (h\nabla \textbf{u}) = 0.
+\partiald{h}{t} + (h\nabla\cdot \textbf{u}) = 0.
 \end{equation}
 \end{frame}
 %\begin{frame}{What are the Shallow Water Equations?}
@@ -259,7 +259,7 @@ Then using the fact that $\zeta=\nabla^2\psi$, we obtain an equation for $\psi$:
 
 
 \begin{frame}[fragile]
-\frametitle{Linearization}
+\frametitle{Linearisation}
 We see that a steady uniform flow with velocity $\mathbf{u_0}=\left(U,0\right)$ and stream function $\psi_0=-Uy$ satisfies equation (TODO ref). 
 
 We now consider a small perturbation $\psi=\psi_0+\epsilon\psi_1+O\left(\epsilon^2\right)$. By substituting this into (TODO ref) and discarding higher order terms we obtain the following equation for $\psi_1$:
